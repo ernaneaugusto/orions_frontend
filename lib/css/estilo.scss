@@ -1,0 +1,426 @@
+@font-face {
+	font-family: 'Lato-Light';
+	src: url("../fonts/Lato-Light.ttf");
+}
+@font-face {
+	font-family: 'Lato-Regular';
+	src: url("../fonts/Lato-Regular.ttf");
+}
+@font-face {
+	font-family: 'MyriadPro-Regular';
+	src: url("../fonts/MyriadPro-Regular.otf");
+}
+
+$preto: #111;
+$amarelo: #fcba00;
+$branco: #fff;
+$font-light: "Lato-Light";
+$font-regular: "Lato-Regular";
+$font-myriad: "MyriadPro-Regular";
+
+%altura-linha{
+	line-height: 1.65;
+}
+%borda-zero{
+	border-radius: 100%;
+	-moz-border-radius: 100%;  
+	-khtml-border-radius: 100%;
+	-webkit-border-radius: 100%;
+}
+%hover-btn{
+	background: #333;
+	color: $branco;
+	border: 3px solid #333;
+}
+@mixin barra-titulo($cima-baixo, $esquerda-direita) {
+	content: "";
+	display: block;
+	width: 88px;
+	height: 4px;
+	background-color: $amarelo;
+	margin: $cima-baixo $esquerda-direita;
+}
+@mixin texto-titulo(){
+	font-size: 25px;
+	font-weight: bold;
+}
+*{
+	font-family: $font-myriad;
+}
+p,
+h1,
+h2,
+h3,
+h4{
+	color: $preto;
+}
+// **** NAVBAR ****
+.navbar-padrao{
+	background: $preto;
+	padding: 18px 0 26px 0;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+@media only screen and (min-width: 320px) and (max-width: 767px){
+	.navbar-header{
+		padding-left: 14px;
+	}
+}
+.nav > li a{
+	color: $branco;	
+	font-size: 18px;
+	letter-spacing: 3px;
+}
+.ativo{
+	color: $amarelo;
+}
+.nav > li > a:hover{
+	color: $amarelo;
+	background: $preto;
+}
+
+// **** APRESENTACAO ****
+.apresentacao{
+	height: 360px;
+	background: #f9cd57; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover, #f9cd57 0%, #eaaa00 100%); /* FF3.6-15 */
+	background: -webkit-radial-gradient(center, ellipse cover, #f9cd57 0%,#eaaa00 100%); /* Chrome10-25,Safari5.1-6 */
+	background: radial-gradient(ellipse at center, #f9cd57 0%,#eaaa00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9cd57', endColorstr='#eaaa00',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */	
+}
+.banner{
+	height: 350px;
+	max-width: 906px;	
+	margin: 0 auto;	
+	display: block;
+	position: relative;
+	background: #000;
+	box-shadow: 0px 5px 8px $preto;
+}
+@media only screen and (max-width: 767px){
+	.banner{
+		display: none;
+	}
+	.apresentacao{
+		padding-top: 50px;
+		height: 200px;
+	}
+	.texto-principal{
+		font-size: 25px;
+	}
+}
+.texto-principal{
+	font-family: $font-regular;
+	color: #4b4b4b;
+	font-style: italic;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin: 0 auto;
+}
+// **** SERVICOS ****
+.servicos{
+	background: #f2f2f2;
+}
+.servicos-titulo{
+	padding-top: 90px;
+	@include texto-titulo();
+}
+@media only screen and (max-width: 991px){
+	.servicos-titulo{
+		padding-top: 195px;		
+	}
+}
+@media only screen and (min-width: 447px) and (max-width: 990px){
+	.servicos-titulo{
+		padding-top: 70px;
+	}
+	.servicos{
+		padding-top: 30px;
+	}
+}
+@media only screen and (max-width: 466px){
+	.servicos-titulo{
+		padding-top: 30px;
+	}
+}
+.servicos-titulo:after{	
+	@include barra-titulo(8px, auto);
+}
+.servicos-itens{
+	width: 208px;
+	height: 208px;
+	@extend %borda-zero;
+	background: #fff;
+	margin: 70px auto;
+	border: 1px solid #bbb;
+
+	span.glyphicon-fundo{
+		width: 56px;
+		height: 56px;
+		color: #e3c54a;
+		background: $preto;
+		@extend %borda-zero;
+		font-size: 30px;
+		padding-top: 12px;		
+	}
+	h3{
+		font-family: $font-regular;
+		font-weight: bold;
+		font-size: 18px;
+		padding-top: 20px;
+	}
+	p{
+		font-family: $font-light;
+		font-size: 14px;
+	}
+	a.servicos-itens-mais{
+		display: inline-block;
+		background: $amarelo;
+		color: $branco;
+		font-size: 27px;
+		width: 36px;
+		height: 36px;
+		@extend %borda-zero;
+		cursor: pointer;
+	}
+	a.servicos-itens-mais:hover{
+		text-decoration: none;
+		background: #000;
+	}
+}
+.servicos-container{
+	margin-top: -25px;
+}
+.servicos-itens-selecionado{
+	background: $amarelo;
+	border-color: $amarelo;
+}
+.servicos-itens-texto{
+	color: $branco;
+}
+.background-branco{
+	background: $branco;
+}
+// **** CONTEUDO-TOGGLE ****
+.conteudo-toggle{
+	background: #555;	
+	color: $branco;
+}
+.padding{
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+h3.conteudo-toggle-titulo{	
+	@include texto-titulo();
+	font-size: 22px;
+	color: $branco;	
+	margin-bottom: 40px;
+}	
+.conteudo-toggle-titulo:after{
+	@include barra-titulo(8px, 22px);	
+}
+.descricao-secoes p{
+	font-size: 13px;
+	font-family: $font-light;
+	color: $branco;
+	padding-left: 40px;
+	line-height: 1.5;
+}
+@media only screen and(max-width: 767px){
+	.descricao-secao{
+		padding: 30px 0 0 0;
+	}
+}
+// **** NEWSLETTER ****
+.newsletter div p:first-child{
+	font-family: $font-regular;
+	font-weight: bold;
+	font-size: 19px;	
+	span{
+		color: $amarelo;
+	}
+}
+.newsletter div p:last-child{
+	font-family: $font-light;
+	font-style: 15px;
+	font-style: italic;
+	font-weight: bold;
+	color: #444;
+}
+.newsletter-titulo:after{
+	@include barra-titulo(8px, 0);
+}
+.newsletter-titulo{	
+	@include texto-titulo();
+	padding-top: 30px;
+}
+form .form-group span{
+	padding: 5px 35px 0 0;
+}
+form .form-group input{
+	padding: 20px;
+	border-radius: 0;
+	border: 2px solid $amarelo;
+}
+#sucesso-envio div{
+	p{
+		margin-top: 10px;
+		color: $amarelo;
+		text-transform: uppercase;
+		font-style: normal;
+		font-size: 19px;		
+		line-height: 1.5;
+		span{
+			font-size: 30px;
+		}
+	}
+	i{
+		color: $amarelo;		
+	}	
+}
+.btn{
+	color: $branco;
+	font-size: 18px;
+	background: $amarelo;
+	border: 2px solid $amarelo;
+	border-radius: 0;
+}
+.btn:hover{
+	@extend %hover-btn;
+}
+@media only screen and (max-width: 768px){
+	#topo{
+		margin-top: 40px;
+	}
+}
+// **** RODAPE ****
+footer{
+	background: $preto;	
+	padding: 10px 0;
+	margin-top: 50px;
+}
+footer div i{
+	color: $amarelo;
+	display: block;
+}
+footer div p{
+	color: #727272;
+	font-size: 14px;
+	font-family: $font-regular;
+}
+footer div a img{
+	margin: 0 auto;
+	padding-bottom: 10px;
+}
+// **** QUEM SOMOS ****
+.quem-somos{
+	padding: 30px 70px 0 70px;	
+	p{
+		margin-bottom: 30px;
+		font-family: $font-regular;
+	}
+}
+.quem-somos-apresentacao{
+	height: 250px;
+	margin: 0 auto;
+	background-image: url("../img/banner_quem_somos.jpg"), url(paper.gif);
+	background-position: center;
+}
+.quem-somos-titulo{
+	@include texto-titulo();	
+	padding-bottom: 20px;
+}
+.quem-somos-titulo:after{
+	@include barra-titulo(8px, 32px);	
+}
+.quem-somos-descricao{
+	font-size: 19px;
+	@extend %altura-linha;
+	color: #444;
+}
+#hospedagem,
+#marketing,
+#sites,
+#identidade{
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+a.scroll{
+	width:50px;  
+	border:3px solid $amarelo; 
+	padding: 5px; 
+	display: inline-block;
+	background: $amarelo;
+	color: $branco;  
+	cursor:pointer;
+	@extend %borda-zero;
+}	
+a.scroll:hover{
+	@extend %hover-btn; 
+}
+// **** CAROUSEL ****
+.carouselbox {
+	font-size: 14px;
+	max-width: 906px;
+	height: 350px;
+	position: relative;
+	display: block;
+}
+.conteudo {
+	margin: 0;
+	padding: 0;
+}
+.conteudo li {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	list-style: none;
+	text-align: center;
+	z-index: 2;
+}
+.active {
+	height: 215px;
+}
+.carouselbox button {
+	border: none;
+	visibility: hidden;
+}
+.active button {
+	visibility: visible;
+} 
+.botoes{
+	top: 310px;
+}
+.proximo{
+	margin-left: -3px;
+}
+.anterior,
+.proximo{
+	padding: 12px;
+}
+.botoes {
+	width: 100%;
+	z-index: 10;
+	position: relative;
+	height: 45px;
+	background: #000;
+}
+.active li {
+	position: absolute;
+	top: 0;
+	opacity: 0;
+	transform: scale(0);
+	transition: 1s;
+}
+.active li.current {
+	opacity: 1;
+	transform: scale(1);
+	transition: 1s;
+}
+.conteudo li img {
+	max-width: 1280px;
+	width: 100%;
+	display: block;
+}
+
+/*# sourceMappingURL=estilo.scss.map */
